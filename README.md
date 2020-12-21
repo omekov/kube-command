@@ -18,6 +18,18 @@ minikube config set driver docker
 
 ## Kubectl
 
+Запустить под с манифест файлом:
+```
+kubectl create -f ./pod.yaml
+```
+
+Список подов запущенных
+```
+kubectl get pods
+```
+
+
+
 ## Полезные ссылки:
 #### Ссылки:
 - [minikube](https://minikube.sigs.k8s.io/)
