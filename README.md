@@ -25,10 +25,16 @@ kubectl create -f ./pod.yaml
 
 Список подов запущенных
 ```
-kubectl get pods
+kubectl get pod
 ```
 
-
+## Советы
+Если
+```
+$ kubectl get pod
+my-pod   0/1     ImagePullBackOff   0          16m
+```
+нужно установить нужный docker image который ты указал в yaml файле
 
 ## Полезные ссылки:
 #### Ссылки:
