@@ -23,9 +23,14 @@ minikube config set driver docker
 kubectl create -f ./pod.yaml
 ```
 
-Список запущенных pods
+Список запущенных pods сокращение po
 ```
 kubectl get pod
+```
+
+Возможность увидеть labels в списке
+```
+kubectl get pod --show-labels
 ```
 
 Удалить под названию (вместо --all) или все
@@ -38,10 +43,32 @@ kubectl delete pod --all
 kubectl create -f ./replicaset.yaml
 ```
 
-Список запущенных replicaset 
+Список запущенных replicaset сокращение rs
 ```
 kubectl get replicaset
 ```
+
+
+Scale, Комманда для измений rs на уменьшения и увелечения, если нет rs он может создать
+```
+kubectl apply -f ./replicaset.yaml
+```
+
+Комманда для scale
+```
+kubectl scale --replicas=2 replicaset my-replicaset
+```
+
+Возможность увидеть подробнее про replicaset
+```
+kubectl describe rs my-replicaset
+```
+
+Возможность увидеть подробнее про pod
+```
+kubectl describe pod my-replicaset-7jrsd 
+```
+
 
 ## Советы
 Если
@@ -50,6 +77,22 @@ $ kubectl get pod
 my-pod   0/1     ImagePullBackOff   0          16m
 ```
 нужно установить нужный docker image который ты указал в yaml файле
+
+Если
+```
+$ kubectl get pod
+my-replicaset-7jrsd   0/1     ContainerCreating   0          32s
+```
+идёт создание контайнера
+
+Если ты указал на pod тот же label в rs
+```
+$ kubectl get pod
+my-pod-1              0/1     Terminating   0          8s
+```
+Этот статус говорит о том что нужно  отключить его и kubernetes отключить
+
+Если нужно обновить rs нужно удалить pod с rs, тогда он убёт под и поднимется обновленный 
 
 ## Полезные ссылки:
 #### Ссылки:
