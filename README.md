@@ -18,14 +18,29 @@ minikube config set driver docker
 
 ## Kubectl
 
-Запустить под с манифест файлом:
+Запустить pod с манифест файлом:
 ```
 kubectl create -f ./pod.yaml
 ```
 
-Список подов запущенных
+Список запущенных pods
 ```
 kubectl get pod
+```
+
+Удалить под названию (вместо --all) или все
+```
+kubectl delete pod --all
+```
+
+Запустить pod с манифест файлом:
+```
+kubectl create -f ./replicaset.yaml
+```
+
+Список запущенных replicaset 
+```
+kubectl get replicaset
 ```
 
 ## Советы
